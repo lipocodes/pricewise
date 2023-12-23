@@ -22,3 +22,12 @@ Replace it with custom Tailwind definitions (like in tailwind.config.ts  https:/
 
 In app/layout.tsx:
 add another font 'Space_Grotesk'
+<main className="max-w-10xl mx-auto">
+
+Add folder root: components  (each components looks like:  Navbar.tsx)
+
+In app/favicon.ico:  bring your own (like: creating it online)
+
+Attention to the structure:
+app/public/assets/icons  (should be SVG files)
+app/public/assets/images (should be SVG files)
