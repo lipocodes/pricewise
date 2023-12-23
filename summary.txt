@@ -1,0 +1,24 @@
+inside folder 'pricewise':
+npx create-next-app@latest ./
+
+
+Install VSC extensions: ES7+
+
+in app/page.tsx:
+clean all contents
+rafce
+const Home = () => {
+  return <div>Home</div>;
+};
+
+export default Home;
+
+
+In app/globals.css:
+Replace it with custom Tailwind definitions (like in globals.css  https://gist.github.com/adrianhajdin/686326bc20e24810128637a9053c49a0)
+
+In app/tailwind.config.ts: 
+Replace it with custom Tailwind definitions (like in tailwind.config.ts  https://gist.github.com/adrianhajdin/686326bc20e24810128637a9053c49a0)
+
+In app/layout.tsx:
+add another font 'Space_Grotesk'
