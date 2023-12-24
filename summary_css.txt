@@ -1,0 +1,12 @@
+w-full (100%)
+text-primary   text-secondary
+font-spaceGrotesk 
+object-contain
+border-2 border-red-500
+max-xl:flex-col  //up to 1280px
+leading-[72px]
+tracking-[-1.2px]
+shadow-xs
+text-base
+hover:opacity-90
+-left-[15%] bottom-[0]

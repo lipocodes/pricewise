@@ -2,7 +2,7 @@ inside folder 'pricewise':
 npx create-next-app@latest ./
 
 
-Install VSC extensions: ES7+
+Install VSC extensions: ES7+, Tailwind Intellisense
 
 in app/page.tsx:
 clean all contents
@@ -31,3 +31,20 @@ In app/favicon.ico:  bring your own (like: creating it online)
 Attention to the structure:
 app/public/assets/icons  (should be SVG files)
 app/public/assets/images (should be SVG files)
+
+
+In Navbar.tsx (essential for WCAG & SEO):
+ return <header>
+    <nav>
+          
+    </nav>
+  </header>;
+  
+In app/page.tsx:
+const Home = () => {
+  return <>
+  <section>
+    
+  </section>
+  </>;
+};  
