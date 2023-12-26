@@ -47,4 +47,16 @@ const Home = () => {
     
   </section>
   </>;
-};  
+};
+
+
+ const handleSubmit = async (event:FormEvent<HTMLFormElement>) => {};    //Submit button clicked
+ 
+ 
+ * Server actions:  add file root/lib/actions/index.ts //functions should be short & implement complicated logic inside lib/[functionality]/index.ts
+   
+
+* BrightData (Proxies & Scraping Infrastructure):
+ My Proxies => Web Unblocker => Add
+  
+ 

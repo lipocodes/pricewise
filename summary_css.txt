@@ -10,3 +10,6 @@ shadow-xs
 text-base
 hover:opacity-90
 -left-[15%] bottom-[0]
+disabled:opacity-40
+disabled:cursor-not-allowed
+hover:opacity-90
