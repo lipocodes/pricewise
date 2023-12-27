@@ -1,5 +1,5 @@
 //npm install axios cheerio
-import { extractCurrency, extractPrice } from "@/lib/utils";
+import { extractCurrency, extractDescription, extractPrice } from "@/lib/utils";
 import axios from "axios";
 import * as cheerio from "cheerio";
 
@@ -54,15 +54,30 @@ export async function scrapeAmazonProduct(url: string) {
     const imageUrls = Object.keys(JSON.parse(images));
 
     const currency = extractCurrency($(".a-price-symbol"));
+    const discountRate = $(".savingsPercentage").text().replace(/[-%]/g, "");
 
-    console.log({
+    const description = extractDescription($);
+
+    //construct data object with all  the scraped information
+    const data = {
       title,
-      currentPrice,
-      originalPrice,
+      description,
+      currentPrice: Number(currentPrice) || Number(originalPrice),
+      originalPrice: Number(originalPrice) || Number(currentPrice),
       outOfStock,
-      imageUrls,
-      currency,
-    });
+      imageUrls: imageUrls[0],
+      currency: currency || "$",
+      discountRate: Number(discountRate),
+      priceHistory: [],
+      category: "category",
+      reviewsCount: 100,
+      stars: 4.5,
+      lowestPrice: Number(currentPrice) || Number(originalPrice),
+      highestPrice: Number(originalPrice) || Number(currentPrice),
+      average: Number(currentPrice) || Number(originalPrice),
+    };
+
+    return data;
   } catch (err: any) {
     throw new Error(`Can't scrape product: ${err}`);
   }

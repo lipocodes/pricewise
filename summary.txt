@@ -61,6 +61,10 @@ const Home = () => {
  Add file root/.env
  
 Object.keys(lior)  //take the object lior & make a list of its 'key' value 
-Object.values(lior)  //take the object lior & make a list of its 'value' value   
+Object.values(lior)  //take the object lior & make a list of its 'value' value
+
+add file root/types/index.ts
+add file lib/actions/mongoose.ts
+add lib/models/product.ts   
   
  
