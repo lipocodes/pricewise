@@ -58,5 +58,9 @@ const Home = () => {
 
 * BrightData (Proxies & Scraping Infrastructure):
  My Proxies => Web Unblocker => Add
+ Add file root/.env
+ 
+Object.keys(lior)  //take the object lior & make a list of its 'key' value 
+Object.values(lior)  //take the object lior & make a list of its 'value' value   
   
  
