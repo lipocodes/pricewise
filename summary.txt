@@ -65,6 +65,11 @@ Object.values(lior)  //take the object lior & make a list of its 'value' value
 
 add file root/types/index.ts
 add file lib/actions/mongoose.ts
-add lib/models/product.model.ts   
+add lib/models/product.model.ts  
+
+interface Props {
+  product: Product;  //Product is a custom type
+}
+const ProductCard = ({ product }: Props) 
   
  

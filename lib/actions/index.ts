@@ -7,7 +7,7 @@ import { scrapeAmazonProduct } from "./scraper";
 //redirect path
 import { revalidatePath } from "next/cache";
 
-const scrapeAndStoreProduct = (productUrl: string) => {
+const scrapeAndStoreProduct = async (productUrl: string) => {
   if (!productUrl) return;
 
   try {
@@ -57,4 +57,14 @@ const getProductById = async (productId: string) => {
   }
 };
 
-export { scrapeAndStoreProduct, getProductById };
+const getAllProducts = async () => {
+  try {
+    connectToDB();
+    const products = await Product.find();
+    return products;
+  } catch (err: any) {
+    console.log("eeeeeeeeee getAllProducts()" + err.toString);
+  }
+};
+
+export { scrapeAndStoreProduct, getProductById, getAllProducts };
