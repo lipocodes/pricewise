@@ -65,6 +65,6 @@ Object.values(lior)  //take the object lior & make a list of its 'value' value
 
 add file root/types/index.ts
 add file lib/actions/mongoose.ts
-add lib/models/product.ts   
+add lib/models/product.model.ts   
   
  
