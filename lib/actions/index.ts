@@ -67,4 +67,23 @@ const getAllProducts = async () => {
   }
 };
 
-export { scrapeAndStoreProduct, getProductById, getAllProducts };
+const getSimilarProducts = async (productId: string) => {
+  try {
+    connectToDB();
+    const currentProduct = await Product.findById(productId);
+    if (!currentProduct) return;
+    const similarProducts = await Product.find({
+      _id: { $ne: productId },
+    }).limit(3);
+    return similarProducts;
+  } catch (err: any) {
+    console.log("eeeeeeeeee getAllProducts()" + err.toString);
+  }
+};
+
+export {
+  scrapeAndStoreProduct,
+  getProductById,
+  getAllProducts,
+  getSimilarProducts,
+};

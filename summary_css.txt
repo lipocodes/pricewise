@@ -17,3 +17,4 @@ capitalize
 border-y
 line-through
 text-primary-green
+hover:bg-opacity-70
