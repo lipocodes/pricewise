@@ -69,6 +69,13 @@ const getAveragePrice = (priceList: PriceHistoryItem[]) => {
   return averagePrice;
 };
 
+const formatNumber = (num: number = 0) => {
+  return num.toLocaleString(undefined, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
+};
+
 export {
   extractPrice,
   extractCurrency,
@@ -76,4 +83,5 @@ export {
   getLowestPrice,
   getHighestPrice,
   getAveragePrice,
+  formatNumber,
 };

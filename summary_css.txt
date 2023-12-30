@@ -14,3 +14,6 @@ disabled:opacity-40
 disabled:cursor-not-allowed
 hover:opacity-90
 capitalize
+border-y
+line-through
+text-primary-green
