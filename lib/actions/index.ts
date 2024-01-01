@@ -1,11 +1,14 @@
 "use server";
 
+import { User } from "@/types";
 import Product from "../models/product.model";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
 import { connectToDB } from "./mongoose";
 import { scrapeAmazonProduct } from "./scraper";
 //redirect path
 import { revalidatePath } from "next/cache";
+import { generateEmailBody } from "../nodemailer";
+import { sendEmail } from "./../nodemailer/index";
 
 const scrapeAndStoreProduct = async (productUrl: string) => {
   if (!productUrl) return;
@@ -81,9 +84,33 @@ const getSimilarProducts = async (productId: string) => {
   }
 };
 
+const addUserEmailToProduct = async (productId: string, userEmail: string) => {
+  try {
+    //send our first email
+    const product = await Product.findById(productId);
+    if (!product) return;
+    const userExists = product.users.some(
+      (user: User) => user.email === userEmail
+    );
+    if (!userExists) {
+      product.users.push(userEmail);
+      product.save();
+      {
+        /* in lib/nodemailer.index.ts  */
+      }
+      const emailContent = await generateEmailBody(product, "WELCOME");
+      await sendEmail(emailContent, [userEmail]);
+    }
+  } catch (err) {
+    console.log("eeeeeeeeeeee=" + err);
+  }
+};
+
 export {
   scrapeAndStoreProduct,
   getProductById,
   getAllProducts,
   getSimilarProducts,
+  addUserEmailToProduct,
+  sendEmail,
 };

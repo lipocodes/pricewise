@@ -18,3 +18,10 @@ border-y
 line-through
 text-primary-green
 hover:bg-opacity-70
+min-h-screen  //100vh
+inset-0  //no innet box
+duration-200  //used in transitions
+
+block //display as a new nlock in a new line
+inline  //default of <span> 
+inline-block   //resumes in the same line but it can have its height
