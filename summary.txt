@@ -99,6 +99,7 @@ const updatedPriceHistory = [
     };	
 
 
-npm run build  //if it works, it should work on Vercel	
+npm run build  //if it works, it should work on Vercel
+In vercel settings:  In "Framework Preset", select Next.js.	
   
  
