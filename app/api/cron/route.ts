@@ -37,9 +37,7 @@ export async function GET(request: Request) {
         const updatedPriceHistory = [
           ...currentProduct.priceHistory,
           {
-            price: scrapedProduct.currentPrice
-              ? scrapedProduct.currentPrice
-              : 0,
+            price: 0,
           },
         ];
 
