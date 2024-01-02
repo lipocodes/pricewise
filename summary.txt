@@ -100,6 +100,10 @@ const updatedPriceHistory = [
 
 
 npm run build  //if it works, it should work on Vercel
-In vercel settings:  In "Framework Preset", select Next.js.	
+In vercel settings:  In "Framework Preset", select Next.js.
+In app/api/cron/route.ts   //view the structure & settings
+Define a cron job on Vercel
+Imporatant: cron jobs run once a day  => https://cron-job.org/en/  =>
+Create Cronjob  (url is the one you get on Vercel when clicking 'Visit' + /api/cron)	
   
  
