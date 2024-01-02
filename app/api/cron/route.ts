@@ -27,10 +27,10 @@ export async function GET(request: Request) {
     if (!products) throw new Error("No product fetched");
 
     // ======================== 1 SCRAPE LATEST PRODUCT DETAILS & UPDATE DB
-     const updatedProducts = await Promise.all(
+    const updatedProducts = await Promise.all(
       products.map(async (currentProduct) => {
         // Scrape product
-        const scrapedProduct = await scrapeAmazonProduct(currentProduct.url);
+        /*const scrapedProduct = await scrapeAmazonProduct(currentProduct.url);
 
         if (!scrapedProduct) return;
 
@@ -56,7 +56,7 @@ export async function GET(request: Request) {
           },
           product
         );
-/*
+
         // ======================== 2 CHECK EACH PRODUCT'S STATUS & SEND EMAIL ACCORDINGLY
         const emailNotifType = getEmailNotifType(
           scrapedProduct,
@@ -81,10 +81,10 @@ export async function GET(request: Request) {
           await sendEmail(emailContent, userEmails);
         }
 
-        return updatedProduct;
+        return updatedProduct;*/
       })
     );
-*/
+
     return NextResponse.json({
       message: "Ok",
       data: /*updatedProducts*/ {},
