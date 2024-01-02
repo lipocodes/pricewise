@@ -13,6 +13,7 @@ import { generateEmailBody, sendEmail } from "@/lib/nodemailer";
 import { connectToDB } from "@/lib/actions/mongoose";
 import { scrapeAmazonProduct } from "@/lib/actions/scraper";
 
+//very imporatnt settings
 export const maxDuration = 10; // This function can run for a maximum of 300 seconds
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
