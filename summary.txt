@@ -71,5 +71,31 @@ interface Props {
   product: Product;  //Product is a custom type
 }
 const ProductCard = ({ product }: Props) 
+
+app/api/cron/route.ts   //defining periodic operations
+
+//loops run in parallel & when the last finished, the result is in updatedProduct
+const updatedProducts = await Promise.all(products.map(async(currentProduct)=>(
+      
+    )));
+
+//userEmails gets all user emails	
+const userEmails = updatedProduct.users.map(
+            (user: any) => user.email
+          );
+
+//copying members from currentProduct.priceHistory & adding a new member
+const updatedPriceHistory = [
+          ...currentProduct.priceHistory,
+          {
+            price: scrapedProduct.currentPrice,
+          },
+        ];	
+
+//copying fileds from object scrapedProduct & adding a new field
+ const product = {
+    ...scrapedProduct,
+    priceHistory: updatedPriceHistory, 
+    };		
   
  
