@@ -1,29 +1,27 @@
-import React from "react";
-import { PageProps } from "./../../../.next/types/app/layout";
-import { getProductById, getSimilarProducts } from "@/lib/actions";
-import { redirect } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import { Product } from "@/types";
-import { formatNumber } from "@/lib/utils";
+import Modal from "@/components/Modal";
 import PriceInfoCard from "@/components/PriceInfoCard";
 import ProductCard from "@/components/ProductCard";
-import Modal from "@/components/Modal";
+import { getProductById, getSimilarProducts } from "@/lib/actions";
+import { formatNumber } from "@/lib/utils";
+import { Product } from "@/types";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: { id: string };
 };
 
-const ProductDetails = async ({ params }: Props) => {
-  const product = await getProductById(params.id);
+const ProductDetails = async ({ params: { id } }: Props) => {
+  const product: Product = await getProductById(id);
+
   if (!product) redirect("/");
 
-  const similarProducts = await getSimilarProducts(params.id);
+  const similarProducts = await getSimilarProducts(id);
 
   return (
     <div className="product-container">
       <div className="flex gap-28 xl:flex-row flex-col">
-        {/* image part */}
         <div className="product-image">
           <Image
             src={product.image}
@@ -33,17 +31,18 @@ const ProductDetails = async ({ params }: Props) => {
             className="mx-auto"
           />
         </div>
-        {/* data part */}
+
         <div className="flex-1 flex flex-col">
           <div className="flex justify-between items-start gap-5 flex-wrap pb-6">
             <div className="flex flex-col gap-3">
               <p className="text-[28px] text-secondary font-semibold">
                 {product.title}
               </p>
+
               <Link
                 href={product.url}
                 target="_blank"
-                className="text-base opacity-50"
+                className="text-base text-black opacity-50"
               >
                 Visit Product
               </Link>
@@ -54,10 +53,11 @@ const ProductDetails = async ({ params }: Props) => {
                 <Image
                   src="/assets/icons/red-heart.svg"
                   alt="heart"
-                  height={20}
                   width={20}
+                  height={20}
                 />
-                <p className="text-base font-semibold text-[#d46F77]">
+
+                <p className="text-base font-semibold text-[#D46F77]">
                   {product.reviewsCount}
                 </p>
               </div>
@@ -66,8 +66,8 @@ const ProductDetails = async ({ params }: Props) => {
                 <Image
                   src="/assets/icons/bookmark.svg"
                   alt="bookmark"
-                  height="20"
-                  width="20"
+                  width={20}
+                  height={20}
                 />
               </div>
 
@@ -75,14 +75,15 @@ const ProductDetails = async ({ params }: Props) => {
                 <Image
                   src="/assets/icons/share.svg"
                   alt="share"
-                  height="20"
-                  width="20"
+                  width={20}
+                  height={20}
                 />
               </div>
             </div>
           </div>
+
           <div className="product-info">
-            <div className="flex flex-col gap-2 ">
+            <div className="flex flex-col gap-2">
               <p className="text-[34px] text-secondary font-bold">
                 {product.currency} {formatNumber(product.currentPrice)}
               </p>
@@ -97,8 +98,8 @@ const ProductDetails = async ({ params }: Props) => {
                   <Image
                     src="/assets/icons/star.svg"
                     alt="star"
-                    width="20"
-                    height="20"
+                    width={16}
+                    height={16}
                   />
                   <p className="text-sm text-primary-orange font-semibold">
                     {product.stars || "25"}
@@ -109,21 +110,22 @@ const ProductDetails = async ({ params }: Props) => {
                   <Image
                     src="/assets/icons/comment.svg"
                     alt="comment"
-                    height="16"
-                    width="16"
+                    width={16}
+                    height={16}
                   />
                   <p className="text-sm text-secondary font-semibold">
-                    {product.reviewsCount || "No"} Reviews
+                    {product.reviewsCount} Reviews
                   </p>
                 </div>
               </div>
 
               <p className="text-sm text-black opacity-50">
-                <span className="text-primary-green font-semibold">93%</span> of
-                buyers have recommended this
+                <span className="text-primary-green font-semibold">93% </span>{" "}
+                of buyers have recommeded this.
               </p>
             </div>
           </div>
+
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap">
               <PriceInfoCard
@@ -133,7 +135,6 @@ const ProductDetails = async ({ params }: Props) => {
                   product.currentPrice
                 )}`}
               />
-
               <PriceInfoCard
                 title="Average Price"
                 iconSrc="/assets/icons/chart.svg"
@@ -141,7 +142,6 @@ const ProductDetails = async ({ params }: Props) => {
                   product.averagePrice
                 )}`}
               />
-
               <PriceInfoCard
                 title="Highest Price"
                 iconSrc="/assets/icons/arrow-up.svg"
@@ -149,7 +149,6 @@ const ProductDetails = async ({ params }: Props) => {
                   product.highestPrice
                 )}`}
               />
-
               <PriceInfoCard
                 title="Lowest Price"
                 iconSrc="/assets/icons/arrow-down.svg"
@@ -159,7 +158,8 @@ const ProductDetails = async ({ params }: Props) => {
               />
             </div>
           </div>
-          <Modal productId={params.id} />
+
+          <Modal productId={id} />
         </div>
       </div>
 
@@ -168,25 +168,30 @@ const ProductDetails = async ({ params }: Props) => {
           <h3 className="text-2xl text-secondary font-semibold">
             Product Description
           </h3>
+
           <div className="flex flex-col gap-4">
             {product?.description?.split("\n")}
           </div>
         </div>
+
         <button className="btn w-fit mx-auto flex items-center justify-center gap-3 min-w-[200px]">
           <Image
             src="/assets/icons/bag.svg"
             alt="check"
-            width="22"
-            height="22"
+            width={22}
+            height={22}
           />
-          <Link href="" className="text-base text-white">
+
+          <Link href="/" className="text-base text-white">
             Buy Now
           </Link>
         </button>
       </div>
-      {similarProducts && similarProducts.length > 0 && (
+
+      {similarProducts && similarProducts?.length > 0 && (
         <div className="py-14 flex flex-col gap-2 w-full">
           <p className="section-text">Similar Products</p>
+
           <div className="flex flex-wrap gap-10 mt-7 w-full">
             {similarProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
