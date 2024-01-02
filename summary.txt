@@ -105,5 +105,5 @@ In app/api/cron/route.ts   //view the structure & settings
 Define a cron job on Vercel
 Imporatant: cron jobs run once a day  => https://cron-job.org/en/  =>
 Create Cronjob  (url is the one you get on Vercel when clicking 'Visit' + /api/cron)	
-  
+tset the cron job.  You can view log eerror on Vercel.  
  
