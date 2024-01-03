@@ -22,6 +22,8 @@ export async function scrapeAmazonProduct(url: string) {
 
   try {
     //Fetch the product page
+    url =
+      "https://www.amazon.com/dp/B0BYP4MWFJ/ref=sr_1_2_sspa?crid=I1NF3OX7LVHT&keywords=dog&qid=1704263270&sprefix=d%2Caps%2C269&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1";
     const response = await axios.get(url, options);
     //using cheerio var
     const $ = cheerio.load(response.data);
