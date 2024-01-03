@@ -40,7 +40,7 @@ export async function GET(request: Request) {
             price: scrapedProduct.currentPrice,
           },
         ];
-        /*
+
         const product = {
           ...scrapedProduct,
           priceHistory: updatedPriceHistory,
@@ -56,7 +56,7 @@ export async function GET(request: Request) {
           },
           product
         );
-
+        /*
         // ======================== 2 CHECK EACH PRODUCT'S STATUS & SEND EMAIL ACCORDINGLY
         const emailNotifType = getEmailNotifType(
           scrapedProduct,
