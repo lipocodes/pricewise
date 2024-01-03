@@ -34,13 +34,13 @@ export async function GET(request: Request) {
 
         if (!scrapedProduct) return;
 
-        /*const updatedPriceHistory = [
+        const updatedPriceHistory = [
           ...currentProduct.priceHistory,
           {
             price: scrapedProduct.currentPrice,
           },
         ];
-        
+
         const product = {
           ...scrapedProduct,
           priceHistory: updatedPriceHistory,
@@ -81,7 +81,7 @@ export async function GET(request: Request) {
           await sendEmail(emailContent, userEmails);
         }
 
-        return updatedProduct;*/
+        return updatedProduct;
       })
     );
 
